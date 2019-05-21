@@ -19,12 +19,13 @@ class Track {
      * @param {Number} height 弹幕高度
      * @param {Number} start 显示时的 Unix 时间戳
      * @param {Number} hide 消失时的 Unix 时间戳
-     * @param {Number} animation 动画时长
+     * @param {Number} animationShow 显示动画时长
+     * @param {Number} animationHide 消失动画时长
      * @returns {Number} 插入位置 top 值
      */
-    insert(height, start, hide, animation = 0) {
-        let show = start + animation
-        let finish = hide - animation
+    insert(height, start, hide, animationShow = 0, animationHide = animationShow) {
+        let show = start + animationShow
+        let finish = hide - animationHide
 
         if (height >= this._height) {
             this._head.height = this._height
